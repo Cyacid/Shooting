@@ -70,7 +70,7 @@ public class Board extends JPanel implements ActionListener {
             bullet_num=30;
         }else if(level==0){
             spaceship.setHp(9);
-            spaceship.setMp(330);
+            spaceship.setMp(30);
             bullet_num=20;
         }
 
