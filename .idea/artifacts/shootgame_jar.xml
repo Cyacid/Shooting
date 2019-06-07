@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="shootgame:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/shootgame_jar</output-path>
+    <root id="archive" name="shootgame.jar">
+      <element id="module-output" name="shootgame" />
+    </root>
+  </artifact>
+</component>
