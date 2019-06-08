@@ -18,7 +18,7 @@ public class shootgame extends JFrame {
         setResizable(false);
         pack();
 
-        setTitle("Collision");
+        setTitle("Shooting");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
