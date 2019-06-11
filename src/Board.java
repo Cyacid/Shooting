@@ -124,6 +124,7 @@ public class Board extends JPanel implements ActionListener {
         }
 
         g.setColor(Color.RED);
+
         g.drawString("Aliens left: " + aliens.size(), 5, 15);
         g.drawString("Hp left: " + spaceship.getHp(), 5, 785);
         g.drawString("Mp left: " + spaceship.getMp(), 5, 800);
@@ -304,8 +305,10 @@ public class Board extends JPanel implements ActionListener {
     }
     private void inGame() {
 
-        if (!ingame || wingame) {
-            ingame=false;
+        if (!ingame ) {
+            timer.stop();
+        }
+        else if (wingame ) {
             timer.stop();
         }
     }
