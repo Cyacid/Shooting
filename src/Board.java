@@ -73,8 +73,6 @@ public class Board extends JPanel implements ActionListener {
             bullet_num=20;
         }
 
-
-
         timer = new Timer(DELAY, this);
         timer.setDelay(3);
         System.out.println(timer.getDelay());
@@ -474,7 +472,7 @@ public class Board extends JPanel implements ActionListener {
                 ingame=true;
                 menu1=false;
             }
-            if(key == KeyEvent.VK_R && !ingame){
+            if((key == KeyEvent.VK_R && !ingame )||( key == KeyEvent.VK_R && wingame)){
                 score=0;
                 killnum=0;
                 menu=true;
