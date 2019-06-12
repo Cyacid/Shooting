@@ -16,7 +16,7 @@ public class Board extends JPanel implements ActionListener {
     private player spaceship;
     private List<Alien> aliens;
     private boolean ingame,menu=true,fired=false,menu1=false,wingame=false,finalwave=false;
-    private boolean x_skill=false,c_skill=false,v_skill=false;
+    private boolean x_skill=false,c_skill=false,v_skill=false,k_l=false,k_r=false;
     private final int ICRAFT_X = 200;
     private final int ICRAFT_Y = 200;
     private final int B_WIDTH = 800;
@@ -270,8 +270,10 @@ public class Board extends JPanel implements ActionListener {
             cntupdata=0;
             if(x_skill){
                 x_cnt--;
-                if(x_cnt==0)
+                if(x_cnt==0){
+                    x_cnt=200;
                     x_skill=false;
+                }
             }
             else if(bullet_num<100){
                 bul_cnt++;
@@ -423,8 +425,10 @@ public class Board extends JPanel implements ActionListener {
             int key=e.getKeyCode();
             if(fired)
                 fired=false;
-            if (key == KeyEvent.VK_LEFT) {
-                dx=0;
+            if (key == KeyEvent.VK_LEFT ) {
+                k_l=false;
+                if(!k_l && !k_r)
+                    dx=0;
             }
             if(key==KeyEvent.VK_X && spaceship.getMp()>=30 && !x_skill)
             {
@@ -446,7 +450,9 @@ public class Board extends JPanel implements ActionListener {
                 v_skill=true;
             }
             if (key == KeyEvent.VK_RIGHT) {
-                dx=0;
+                k_r=false;
+                if(!k_l && !k_r)
+                    dx=0;
             }
 
             if (key == KeyEvent.VK_UP) {
@@ -475,6 +481,10 @@ public class Board extends JPanel implements ActionListener {
                 level=-1;
                 finalwave=false;
                 wingame=false;
+                x_skill=false;
+                c_cnt=300;
+                world_cnt=200;
+                x_cnt=200;
                 repaint();
             }
             if(key == KeyEvent.VK_1 && menu1){
@@ -512,9 +522,11 @@ public class Board extends JPanel implements ActionListener {
             }
 
             if (key == KeyEvent.VK_LEFT) {
+                k_l=true;
                 dx=-3;
             }
             if (key == KeyEvent.VK_RIGHT) {
+                k_r=true;
                 dx=3;
             }
             if (key == KeyEvent.VK_UP) {
